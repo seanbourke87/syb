@@ -4,10 +4,9 @@ import Link from 'gatsby-link'
 
 class PostListing extends React.Component {
   getPostList() {
-    const postList = []  
+    const postList = []
     console.log(this.props.cat)  
     this.props.postEdges.forEach(postEdge => {
-      console.log(postEdge.node.categories[0].name) 
       if (postEdge.node.categories[0].name.toLowerCase() == this.props.cat) {
         postList.push({
           path: postEdge.node.slug,
@@ -32,8 +31,8 @@ class PostListing extends React.Component {
     return (      
       <div>
         {/* Your post list here. */
-        postList.map(post => (
-          <PostListContainer>
+        postList.map((post, i) => (
+          <PostListContainer key={i}>
             <h3>{post.title}</h3>
             <Link className="post-link" to={post.path} key={post.title}>
               {post.featuredImageUrl !== '' ? (

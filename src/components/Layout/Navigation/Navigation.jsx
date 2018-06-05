@@ -46,7 +46,7 @@ const NavigationContainer = styled.div`
   align-items: center;
   width: 100%;
   margin: auto;
-  padding: 10px 100px;
+  padding: 10px 0;
   background: #9d7cbf;
 `
 
