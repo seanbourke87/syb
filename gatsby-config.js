@@ -69,6 +69,15 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-sass'
+    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Open Sans`,
+          `open sans\:300,400,400i,700, 800` // you can also specify font weights and styles
+        ]
+      }
+    }
   ]
 }

@@ -22,58 +22,22 @@ class TopNavigation extends Component {
   render() {
     const links = this.buildPageNodes()
     return (
-      <NavigationContainer>
-        <TitleSection>
+      <div className="Header">
+        <div className="Logo">
           <Link to="/">
-            <h3>{siteTitle}</h3>
+            <h1>SYB <span>Front End Developer</span></h1>
           </Link>
-        </TitleSection>
-        <NavList>
+        </div>
+        <div className="mainNav">
           {links.map(node => (
             <li key={node.id}>
               <a href={node.pagePath}>{node.name}</a>
             </li>
           ))}
-        </NavList>
-      </NavigationContainer>
+        </div>
+      </div>
     )
   }
 }
-
-const NavigationContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: auto;
-  padding: 10px 0;
-  background: #9d7cbf;
-`
-
-const TitleSection = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  h3 {
-    font-size: 2.5rem;
-  }
-
-  div {
-    margin-right: 10px;
-  }
-`
-
-const NavList = styled.ul`
-  display: flex;
-
-  li {
-    margin-left: 50px;
-  }
-
-  li a {
-    font-size: 2rem;
-  }
-`
 
 export default TopNavigation

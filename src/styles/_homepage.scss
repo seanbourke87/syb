@@ -1,0 +1,256 @@
+$font-size-medium: 1.85rem;
+$font-size-medium-big: 1.75rem;
+$new-area-margin : 3.125rem;
+
+//Homepage - Main Area
+
+.mainContent {
+    width: 90%;
+    max-width: 1400px;
+    margin: $new-area-margin auto;
+}
+
+.mainContent {  
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+  
+    p {
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+}
+
+//Homepage - Intro
+
+$circle-ratio: .6;
+
+@mixin circleDimenions ($size, $top, $left) {
+    width: $size * $circle-ratio;
+    height: $size* $circle-ratio;
+    top: $top* $circle-ratio;
+    left: $left* 0.7;
+  }
+
+.intro {
+    background: #5693b3;
+    color: #fff;
+    text-align: center;
+    padding: 3rem 0 4.8rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.intro {
+    p {
+        font-size: 1.15rem;
+        line-height: 2rem;
+        margin-bottom: 3rem;
+    }
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 0 16%;
+    }
+    li {
+        font-size: 1.6rem;
+    }
+    .bubbles {
+        top: calc(50% - 9px);
+        left: calc(50% - 4px);
+        position: absolute;
+        z-index: -1;
+    }
+    .bubbles {
+        div {
+            background: #4beff3;
+            opacity: .13;
+            border-radius: 50%;
+            width: 166px;
+            height: 166px;
+            position: absolute;
+            margin: auto;
+        }
+        div:nth-child(1) {
+            @include circleDimenions(25px, -6px, -267px);
+        }
+        div:nth-child(2) {
+            @include circleDimenions(46px, -63px, -282px);
+        }
+        div:nth-child(3) {
+            @include circleDimenions(103px, 0px, -295px);
+        }
+        div:nth-child(4) {
+            @include circleDimenions(76px, -54px, -203px);
+        }
+        div:nth-child(5) {
+            @include circleDimenions(64px, 8px, -169px);
+        }
+        div:nth-child(6) {
+            @include circleDimenions(63px, -56px, -54px);
+        }
+        div:nth-child(7) {
+            @include circleDimenions(64px, -30px, -40px);
+        }
+        div:nth-child(8) {
+            @include circleDimenions(166px, -137px, -52px);
+        }
+        div:nth-child(9) {
+            @include circleDimenions(64px, 8px, 15px);
+        }
+        div:nth-child(10) {
+            @include circleDimenions(166px, 0px, 0px);
+        }
+        div:nth-child(11) {
+            @include circleDimenions(84px, 17px, 134px);
+        }
+        div:nth-child(12) {
+            @include circleDimenions(46px, -38px, 221px);
+        }
+        div:nth-child(13) {
+            @include circleDimenions(150px, -56px, 175px);
+        }
+    }
+}
+
+//Homepage - Posts
+
+.postListing {
+    text-align: center;
+}
+
+.postListing {
+  h3 {
+    position: relative;
+  }
+  img {
+      width: 100%;
+  }
+  .post-link {
+      position: relative;
+      display: block;
+  }
+  .imageHover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: .1s ease;
+  }
+  .imageHover div {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    color: #fff;
+    border: 1px solid #fff;    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .post-link:hover .imageHover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: .1s ease;
+  }
+  .imageHover div:hover {
+      background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.other {
+    .postListing {
+        .imageHover div {
+            font-size: 1rem;
+            padding: 0.65rem 1.17rem; 
+        }
+    }
+}
+
+//Homepage - Featured Post
+
+.featured {
+    background: #f6f6f6;
+    margin: $new-area-margin 0;
+}
+
+.featured {
+    h3 {
+        font-size: $font-size-medium;
+        padding: 3rem 0 2rem;
+    }
+    .postImage {
+        padding: 0 11rem 6rem;        
+    }
+}
+
+//Homepage - Additional Posts
+
+.additional {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.additional {
+    .other {
+        width: 48%;
+    }    
+    .postImage {
+        padding: 0 7.25rem 4rem;
+        position: relative;
+    }
+    h3 {
+        font-size: $font-size-medium;
+        padding: 2.5rem 0 2rem;
+    }
+    h4 {
+        color: #cbcbcb;
+        font-size: $font-size-medium;
+        text-transform: uppercase;
+        margin: 0.25rem 0 2.25rem;
+    }
+    .postListing {
+        background: #f6f6f6;
+        margin-bottom: 1.5rem;
+    }
+    .postListing:nth-child(n+2) {
+        display: none;
+    }
+    .postImage span {
+        position: absolute;
+        top: calc(50% - 2rem);
+        transform: translate(-50%, -50%);
+        color: #8b8b8b;
+        font-size: 1.55rem;
+        cursor: pointer;
+        transition: .1s ease;
+        padding: 1rem;
+    }
+    .postImage span:nth-child(1) {
+        left: 9%;
+    }
+    .postImage span:nth-child(2) {
+        left: 91%;
+    }
+    .postImage span:hover {
+        transform: scale(1.25) translateX(-50%) translateY(calc(-50% + 0.325rem));
+        transition: .1s ease;
+        top: calc(50% - 2rem);
+        color: #222222
+    }
+    .postImage span:nth-child(1):hover {
+        left: 10%;
+    }
+    .postImage span:nth-child(2):hover {
+        left: 92%;
+    }
+}

@@ -5,6 +5,7 @@ import PostListing from '../components/Posts/PostListing/PostListing'
 import SEO from '../components/Accessories/SEO/SEO'
 import config from '../../data/SiteConfig'
 import TopNavigation from '../components/Layout/Navigation/Navigation'
+import Intro from '../components/Accessories/Intro/Intro'
 
 class Index extends React.Component {
   render() {
@@ -14,14 +15,32 @@ class Index extends React.Component {
         <Helmet title={config.siteTitle} />
         <SEO postEdges={postEdges} />
         <TopNavigation pages={this.props.data.allWordpressPage} />
-        <MainContentContainer>
-          <p>
-            Having worked within an agency for several years as well as inhouse for a growing company, <br />I consider myself an experienced team player.
-          </p>
-          <PostListing postEdges={postEdges} cat={`featured`} />
-          <PostListing postEdges={postEdges} cat={`dodec`} />
-          <PostListing postEdges={postEdges} cat={`personal`} />
+        <MainContentContainer className="mainContent">
+          <Intro />
+
+
+          <div className="featured">
+            <PostListing postEdges={postEdges} cat={`featured`} />
+          </div>
+
+          <div className="additional">            
+            <div className="other dodec">
+              <h4>Dodec Web Design Agency</h4>
+              <PostListing postEdges={postEdges} cat={`dodec`} />
+            </div>
+
+            <div className="other personal">
+              <h4>Personal Websites</h4>
+              <PostListing postEdges={postEdges} cat={`personal`} />
+            </div>
+          </div>          
+          
         </MainContentContainer>
+
+        <div className="footer">
+          <p>sybfrontend.com - a portfolio site made with React / Gatsby </p>
+        </div>
+
       </HomeContainer>
     )
   }
@@ -30,26 +49,7 @@ class Index extends React.Component {
 export default Index
 
 const HomeContainer = styled.div``
-
-const MainContentContainer = styled.main`
-  width: 600px;
-  margin: 50px auto;
-
-  h1 {
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 25px;
-  }
-
-  p {
-    font-size: 16px;
-    margin-bottom: 25px;
-  }
-
-  pre {
-    background-color: grey;
-  }
-`
+const MainContentContainer = styled.main``
 
 /* eslint no-undef: "off"*/
 export const pageQuery = graphql`

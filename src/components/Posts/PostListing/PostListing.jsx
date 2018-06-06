@@ -28,42 +28,36 @@ class PostListing extends React.Component {
 
   render() {    
     const postList = this.getPostList()
+    const arrows = this.props.cat !== 'featured' ? 'true' : '';
     return (      
       <div>
         {/* Your post list here. */
         postList.map((post, i) => (
-          <PostListContainer key={i}>
-            <h3>{post.title}</h3>
-            <Link className="post-link" to={post.path} key={post.title}>
-              {post.featuredImageUrl !== '' ? (
-                <img
-                  className="featured-image"
-                  src={post.featuredImageUrl}
-                  alt=""
-                />
-              ) : (
-                <div />
-              )}
-            </Link>
-            <p>{post.cat} a</p>
-          </PostListContainer>
+          <div key={i} className="postListing">
+            <h3>{post.title}</h3>            
+            <div className="postImage">
+              {arrows !== '' ? (<span>&#8592;</span>) : ''}
+              {arrows !== '' ? (<span>&#8594;</span>) : ''}
+              <Link className="post-link" to={post.path} key={post.title}>
+                {post.featuredImageUrl !== '' ? (
+                  <img
+                    className="featured-image"
+                    src={post.featuredImageUrl}
+                    alt=""
+                  />
+                ) : (
+                  <div />
+                )}
+                <div className="imageHover">
+                  <div>View Details</div>
+                </div>
+              </Link>              
+            </div>
+          </div>
         ))}
       </div>
     )
   }
 }
-
-const PostListContainer = styled.div`
-  margin: 50px 0;
-  h3 {
-    position: relative;
-  }
-
-  .featured-image {
-    width: 600px;
-    height: 200px;
-    object-fit: cover;
-  }
-`
 
 export default PostListing

@@ -1,0 +1,65 @@
+//Main Section
+
+.postContainer {
+    width: 90%;
+    max-width: 1400px;
+    margin: 3.125rem auto;
+}
+
+.postContent {
+    border: 1px solid #bfbfbf;
+    padding: 5.5rem 6.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.postContent {
+    .featuredImage {
+        width: 35%;
+    }
+    .featuredImage {
+        img {
+            width: 100%
+        }
+    }
+    .postInfo {
+        width: 59%;
+        font-size: 1rem;        
+    }
+    h1 {
+        font-size: 2.85rem;
+        font-weight: 800;
+        font-style: normal;
+        margin-bottom: 1.75rem;
+    }
+    a {
+        color: #5693b3;
+        font-weight: 800;
+        border: 2px solid #5693b3;
+        padding: 0.2rem 0.5rem;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    p {
+        font-size: 1.1rem;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 1.5rem;
+        margin-bottom: 3rem;
+    }
+    span {
+        color: #9b9b9b;
+        margin-top: 1.55rem;
+        display: inline-block;
+    }
+    p:nth-child(1) {
+        margin-bottom: 2.5rem;
+    }
+    h5 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        font-style: normal;
+        line-height: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}

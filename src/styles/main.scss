@@ -1,7 +1,25 @@
-@import 'reset';
+@import '_reset';
+@import '_navigation';
+@import '_homepage';
+@import '_posts';
 
-@mixin borderRadius ($radius: 5px) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
-  }
+$font-stack: 'Open Sans', Helvetica, sans-serif;
+
+//General
+
+body {
+    font-family: $font-stack;
+    color: #222;
+}
+
+.footer {
+    width: 100%;
+    padding: 1.5rem 0 4.5rem;
+    text-align: center;
+}
+
+.footer {
+    p {
+        color: #cbcbcb;
+    }
+}

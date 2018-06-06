@@ -18,20 +18,8 @@ class PostTags extends Component {
 
   render() {
     const tags = this.getTagNames()
-    return (
-      <PostTagsContainer>
-      </PostTagsContainer>
-    )
+    return 
   }
 }
-
-const PostTagsContainer = styled.div`
-  display: flex;
-  width: 100%;
-  a {
-    font-size: 2rem;
-    margin: 0 20px 0 0;
-  }
-`
 
 export default PostTags
