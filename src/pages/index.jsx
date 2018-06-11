@@ -20,18 +20,18 @@ class Index extends React.Component {
 
 
           <div className="featured">
-            <PostListing postEdges={postEdges} cat={`featured`} />
+            <PostListing postEdges={postEdges} cat={`featured`} home={true} />
           </div>
 
           <div className="additional">            
             <div className="other dodec">
               <h4>Dodec Web Design Agency</h4>
-              <PostListing postEdges={postEdges} cat={`dodec`} />
+              <PostListing postEdges={postEdges} cat={`dodec`} arrows={true} />
             </div>
 
             <div className="other personal">
               <h4>Personal Websites</h4>
-              <PostListing postEdges={postEdges} cat={`personal`} />
+              <PostListing postEdges={postEdges} cat={`personal`} arrows={true} />
             </div>
           </div>          
           

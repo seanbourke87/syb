@@ -1,3 +1,6 @@
+$blue: #5693b3;
+
+
 //Main Section
 
 .postContainer {
@@ -40,12 +43,19 @@
         text-transform: uppercase;
         text-decoration: none;
     }
+    a:hover {
+        background: #5693b3;
+        color: #fff;
+    }
     p {
         font-size: 1.1rem;
         font-weight: 400;
         font-style: normal;
         line-height: 1.5rem;
         margin-bottom: 3rem;
+    }
+    p:last-child {
+        margin-bottom: 0;
     }
     span {
         color: #9b9b9b;
@@ -62,4 +72,130 @@
         line-height: 1.5rem;
         margin-bottom: 1rem;
     }
+}
+
+
+// slides
+
+.portfolio-container {
+    .additional {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        margin: 3.125rem auto;
+    }
+    
+    .other {
+            width: 31%;
+    }
+
+    img {
+        vertical-align: bottom;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        padding: 1.7rem 0 1.5rem;
+    }
+
+    h4 {
+        margin: 0.125rem 0;
+        font-size: 1.25rem;
+    }
+
+    .postImage {
+        padding: 0 4.5rem 2.55rem;
+        position: relative;
+    }
+
+    .postImage span:nth-child(1) {
+        left: 8.25%;
+    }
+
+    .postImage span:nth-child(2) {
+        left: 91.5%;
+    }
+
+    .postImage span:nth-child(1):hover {
+        left: 9.25%;
+    }
+    .postImage span:nth-child(2):hover {
+        left: 92.9%;
+    }
+
+    .additional .postImage span {
+        top: calc(50% - 1.5rem);
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    .postListing {
+        margin-top: 1.75rem;
+    }
+
+    .postListing .imageHover div {
+        font-size: .9rem;
+        padding: 0.55rem 1rem;
+    }
+
+    .postImage span:hover {
+        transform: scale(1.2) translateX(-50%) translateY(calc(-50% + 0.6625rem));
+        transition: .1s ease;
+        top: calc(50% - 2rem);
+    }
+
+    .slidesTitle {
+        display: flex;        
+        justify-content: center;
+    }
+
+    .showSlide {
+        margin-top: 2px;
+        cursor: pointer;
+    }
+
+    .showSlide span {
+        width: 17px;
+        height: 14px;
+        display: block;
+        border: 3px solid #ccc;
+        margin-left: 15px;     
+    }
+
+    .showSlide.active span, .showSlide:hover span {
+        border-color: $blue;
+    }
+
+    .showList {
+        margin-top: 2px;
+        cursor: pointer;
+    }
+
+    .showList span {
+        background: #d3d3d3;
+        width: 21px;
+        height: 3px;
+        display: block;
+        margin-bottom: 5px;
+        margin-left: 8px;
+    }
+
+    .showList.active span, .showList:hover span {
+        background: $blue;
+    }
+    
+    .showList span::last-child {
+        margin-bottom: 0;
+    }
+
+    .additional .list {
+        .postListing {
+            display: block;
+            opacity: 1;
+        }
+        .postImage span {
+            display: none;
+        }
+    }
+
 }

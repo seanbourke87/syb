@@ -54,13 +54,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   node {
                     id
                     slug
-                    modified
-                    tags {
-                      name
-                    }
-                    categories {
-                      name
-                    }
                   }
                 }
               }
@@ -71,20 +64,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             console.log(result.errors)
             reject(result.errors)
           }
-          const tags = []
-          const categories = []
           const postTemplate = path.resolve(`./src/templates/post.jsx`)
           // We want to create a detailed page for each
           // post node. We'll just use the Wordpress Slug for the slug.
           // The Post ID is prefixed with 'POST_'
           _.each(result.data.allWordpressPost.edges, edge => {
-            // grab all the tags and categories for later use
-            edge.node.tags.forEach(tag => {
-              tags.push(tag.name)
-            })
-            edge.node.categories.forEach(category => {
-              categories.push(category.name)
-            })
 
             createPage({
               path: `/${edge.node.slug}`,
@@ -95,33 +79,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             })
           })
           // ==== END POSTS ====
-
-          // Create pages for each unique tag and category
-          const tagsTemplate = path.resolve(`./src/templates/tag.jsx`)
-          const categoriesTemplate = path.resolve(
-            `./src/templates/category.jsx`
-          )
-          const tagsSet = new Set(tags)
-          const catSet = new Set(categories)
-          tagsSet.forEach(tag => {
-            createPage({
-              path: `/tags/${_.kebabCase(tag)}/`,
-              component: slash(tagsTemplate),
-              context: {
-                id: tag
-              }
-            })
-          })
-
-          catSet.forEach(cat => {
-            createPage({
-              path: `/categories/${_.kebabCase(cat)}/`,
-              component: slash(categoriesTemplate),
-              context: {
-                id: cat
-              }
-            })
-          })
           resolve()
         })
       })
