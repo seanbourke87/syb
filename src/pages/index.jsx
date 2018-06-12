@@ -24,15 +24,8 @@ class Index extends React.Component {
           </div>
 
           <div className="additional">            
-            <div className="other dodec">
-              <h4>Dodec Web Design Agency</h4>
               <PostListing postEdges={postEdges} cat={`dodec`} arrows={true} />
-            </div>
-
-            <div className="other personal">
-              <h4>Personal Websites</h4>
               <PostListing postEdges={postEdges} cat={`personal`} arrows={true} />
-            </div>
           </div>          
           
         </MainContentContainer>
@@ -58,7 +51,7 @@ export const pageQuery = graphql`
       edges {
         node {
           featured_media {
-            source_url
+            source_url            
           }
           date
           slug
@@ -69,6 +62,13 @@ export const pageQuery = graphql`
           acf {
             extrathumb {
               source_url
+              localFile {
+                childImageSharp {
+                  sizes(maxWidth: 1050, quality: 100) {
+                    ...GatsbyImageSharpSizes_noBase64             
+                  }
+                }
+              }
             }
           }
           categories {

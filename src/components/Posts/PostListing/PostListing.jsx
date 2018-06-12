@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
 class PostListing extends React.Component {
   constructor() {
@@ -10,11 +11,25 @@ class PostListing extends React.Component {
       personalIndex: 1,
       currentIndex: 1,
       direction: '',
+      featured: {
+        slide: 'active',
+        list: '',
+      },
+      dodec: {
+        slide: 'active',
+        list: '',
+      },
+      personal: {
+        slide: 'active',
+        list: '',
+      },
     }
     this.nextButton = this.nextButton.bind(this);
     this.prevButton = this.prevButton.bind(this);
+    this.toggleSlideStatus = this.toggleSlideStatus.bind(this);
   }
 
+  //get posts
   getPostList() {
     const postList = []    
 
@@ -22,7 +37,6 @@ class PostListing extends React.Component {
     const postEdges = this.props.postEdges;
     const postEdgesSorted = [];
     const postSorting = ['FINE + RARE WINES','Jamie Oliver by Tefal',"Natural Enhancement",'Doso','SB Apple','Bourke Hypnotherapy','Jacinta Hairstylist'];
-
     postSorting.forEach(key => {
        postEdges.filter(item => {        
         if (item.node.title == key) {
@@ -45,6 +59,7 @@ class PostListing extends React.Component {
             postEdge.node.acf.extrathumb !== null
               ? postEdge.node.acf.extrathumb.source_url
               : '',
+          lazyImageUrl: postEdge.node.acf.extrathumb.localFile.childImageSharp.sizes,
         })
       }
         
@@ -52,7 +67,19 @@ class PostListing extends React.Component {
     return postList
   }
 
-  //onclick handlers for slider arrows
+  //toggle slide views
+  toggleSlideStatus(cat, type) {
+    if (this.state[cat][type] == 'active') return;
+
+    const newStatus = {};    
+    newStatus[cat] = {
+      slide: this.state[cat].slide == 'active' ? '' : 'active',
+      list: this.state[cat].list == 'active' ? '' : 'active',
+    }
+    this.setState(newStatus);
+  }
+
+  //onclick handlers for next slider arrows
   nextButton(cat) {
     if (this.props.cat == 'dodec') {
       this.setState((prevState) => {
@@ -71,7 +98,8 @@ class PostListing extends React.Component {
       }, () => this.setState({currentIndex: this.state.personalIndex}));       
     }
   }
-  
+
+  //onclick handlers for prev slider arrows
   prevButton(cat) {
     if (this.props.cat == 'dodec') {
       this.setState((prevState) => {
@@ -93,37 +121,67 @@ class PostListing extends React.Component {
   }
 
 
+  
+
+  // <div className={`other dodec ${this.state.dodec.slide == 'active' ? 'slide' : 'list'}`}>
+  // <div className="slidesTitle">
+  //   <h4>Dodec Web Design Agency</h4>
+  //   <div className={`showSlide ${this.state.dodec.slide}`} onClick={(e) => this.toggleSlideStatus('dodec', e)}><span></span></div>
+  //   <div className={`showList ${this.state.dodec.list}`} onClick={(e) => this.toggleSlideStatus('dodec', e)}><span></span><span></span><span></span></div>
+  // </div>
+
   render() {    
     const postList = this.getPostList()
-    const isHome = this.props.home ? 'true' : '';
     const arrows = this.props.arrows ? 'true' : '';
-    return (      
-      <div className={`slide-${this.state.currentIndex} direction-${this.state.direction}`}>
-        {/* Your post list here. */
-        postList.map((post, i) => (
-          <div key={i} className="postListing">
-            <h3>{post.title}</h3>                    
-            <div className="postImage">
-              {!isHome && arrows ? (<span onClick={(e) => this.prevButton(this.props.cat, e)}>&#8592;</span>) : ''}
-              {!isHome && arrows ? (<span onClick={(e) => this.nextButton(this.props.cat, e)}>&#8594;</span>) : ''}
-              <Link className="post-link" to={post.path} key={post.title}>
-                {post.featuredImageUrl !== '' ? (
-                  <img
-                    className="featured-image"
-                    src={post.featuredImageUrl}
+    const isHome = this.props.home ? 'true' : '';
+    const cat = this.props.cat;
+    const catTitle = (function () {
+      if (cat == 'featured' && isHome == true) return '';
+      else if (cat == 'featured' && isHome == false) return 'FRW.CO.UK';
+      else if (cat == 'dodec') return 'Dodec Web Design Agency';
+      else if (cat == 'personal') return 'Personal Websites';      
+    });
+    return (     
+
+      <div className={`other ${cat} ${this.state[cat].slide == 'active' ? 'slide' : 'list'}`}>
+        <div className="slidesTitle">
+                   <h4>{catTitle()}</h4>
+                   <div className={`showSlide ${isHome} ${this.state[cat].slide}`} onClick={(e) => this.toggleSlideStatus(cat, 'slide', e)}><span></span></div>
+                   {cat != 'featured' ? (<div className={`showList ${isHome} ${this.state[cat].list}`} onClick={(e) => this.toggleSlideStatus(cat, 'list', e)}><span></span><span></span><span></span></div>) : ''}                   
+               </div>
+
+        <div className={`slide-${this.state.currentIndex} direction-${this.state.direction}`}>
+          {/* Your post list here. */
+          postList.map((post, i) => (
+            <div key={i} className="postListing">
+              <h3>{post.title}</h3>                    
+              <div className="postImage">
+                {arrows ? (<span onClick={(e) => this.prevButton(cat, e)}>&#8592;</span>) : ''}
+                {arrows ? (<span onClick={(e) => this.nextButton(cat, e)}>&#8594;</span>) : ''}
+                {console.log(window.location.pathname)}
+                <Link className="post-link" to={post.path} key={post.title}>
+                  {post.featuredImageUrl !== '' && !isHome ? (
+                    <Img 
+                    sizes={post.lazyImageUrl} 
                     alt=""
                   />
-                ) : (
-                  <div />
-                )}
-                <div className="imageHover">
-                  <div>View Details</div>
-                </div>
-              </Link>              
+                  ) : (
+                    <img                       
+                      src={post.featuredImageUrl} 
+                      alt=""
+                    />
+                  )}
+                  <div className="imageHover">
+                    <div>View Details</div>
+                  </div>
+                </Link>              
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+
     )
   }
 }

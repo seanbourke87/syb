@@ -1,7 +1,3 @@
-$font-size-medium: 1.85rem;
-$font-size-medium-big: 1.75rem;
-$new-area-margin : 3.125rem;
-
 //Homepage - Main Area
 
 .mainContent {
@@ -53,7 +49,7 @@ $circle-ratio: .6;
     }
     ul {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         padding: 0 16%;
     }
     li {
@@ -216,7 +212,7 @@ $circle-ratio: .6;
         color: #cbcbcb;
         font-size: $font-size-medium;
         text-transform: uppercase;
-        margin: 0.25rem 0 2.25rem;
+        margin: 0.25rem 2rem 0 0;
     }    
     .postImage span {
         position: absolute;
@@ -283,6 +279,7 @@ $circle-ratio: .6;
     .postListing {
         background: #f6f6f6;
         margin-bottom: 1.5rem;
+        margin-top: 2.25em;
     }
 
     .slide-1 {
@@ -358,5 +355,63 @@ $circle-ratio: .6;
             animation: $animateFadeInLeft
         }
     }
+
+
+
+    //slide view icons
+
+    .slidesTitle {
+        display: flex;        
+        justify-content: center;
+    }
+
+    .showSlide {
+        margin-top: 9px;
+        cursor: pointer;
+    }
+
+    .showSlide span {
+        width: 17px;
+        height: 14px;
+        display: block;
+        border: 3px solid #ccc;  
+    }
+
+    .showSlide.active span, .showSlide:hover span {
+        border-color: $blue;
+    }
+
+    .showList {
+        margin-top: 9px;
+        cursor: pointer;
+    }
+
+    .showList span {
+        background: #d3d3d3;
+        width: 21px;
+        height: 3px;
+        display: block;
+        margin-bottom: 5px;
+        margin-left: 8px;
+    }
+
+    .showList.active span, .showList:hover span {
+        background: $blue;
+    }
+    
+    .showList span::last-child {
+        margin-bottom: 0;
+    }
+
+    .list {
+        .postListing {
+            display: block;
+            opacity: 1;
+        }
+        .postImage span {
+            display: none;
+        }
+    }
+
 
 }

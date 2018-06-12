@@ -10,14 +10,20 @@ class wpPage extends Component {
       slug: this.props.data.wordpressPage.slug
     }
 
-    console.log(pageNode)
-
     return (
-      <div>
-        <TopNavigation pages={this.props.data.allWordpressPage} />
-        <h1>{pageNode.title}</h1>
+      <div className="pageContainer">
+        <TopNavigation pages={this.props.data.allWordpressPage} />        
         <main>
-          <div dangerouslySetInnerHTML={{ __html: pageNode.content }} />
+          <div className="pageContent">
+            <h1>{pageNode.title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: pageNode.content }} />
+          </div>
+          {pageNode.title == 'About me' ? (
+            <div className="profilePic">
+              <img src="" />
+              <p>Sean Y Bourke</p>
+            </div>
+          ) : ''}
         </main>
       </div>
     )
