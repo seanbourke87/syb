@@ -95,18 +95,19 @@
         }
         .boxContent {
             width: 30%;
-            height: 200px;
+            height: 180px;
             display: flex;   
             text-align: center;
             position: relative;
             transform-style: preserve-3d;
             cursor: pointer;
+            backface-visibility: hidden;
         }
         .innerContent {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -52%);
             padding: 10px 25px;
         }
         .boxContent > div {
