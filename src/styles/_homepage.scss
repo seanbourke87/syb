@@ -192,6 +192,7 @@ $circle-ratio: .6;
 
 .additional {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     text-align: center;
 }
@@ -405,6 +406,128 @@ $circle-ratio: .6;
             display: none;
         }
     }
+}
 
+
+@media only screen and (max-width: 1025px) {
 
 }
+
+@media only screen and (max-width: 1025px) {
+
+    //Header
+    .Logo {
+        margin: 1rem 0 1rem 1rem;
+    }
+    .Logo h1 {
+        font-size: 2.5rem;
+    }
+    .Logo h1 span {
+        font-size: 1.1rem;
+        display: block;
+        clear: both;
+        margin-left: 0;
+    }
+    .mainNav {
+        margin-right: 1rem;
+        display: block;
+    }
+    .mainNav li {
+        margin-left: 0;
+        padding: 0.25rem;
+        text-align: right;
+    }
+
+    //Main Section
+    .mainContent {
+        margin: 1rem auto;
+    }
+    .intro {
+        padding: 1.5rem 1.5rem 2rem;
+    }
+    .intro p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .intro br {
+        display: none;
+    }
+    .intro ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }  
+    .intro li {
+        font-size: 1.25rem;
+    }
+    .featured {
+        margin: 1.5rem 0;
+    }
+    .featured h3 {
+        font-size: 1.5rem;
+        padding: 1.5rem 0 1rem;
+    }
+    .featured .postImage {
+        padding: 0 1.5rem 2rem;
+    }    
+    .additional {
+        .postListing {
+            margin-top: 1.5em;
+        }
+        h4 {
+            font-size: 1.5rem;
+            margin: 0.25rem 1.5rem 0 0;
+        }
+        .other {
+            width: 100%;
+        }
+        h3 {
+            font-size: 1.5rem;
+            padding: 1.5rem 0 1rem;
+        }
+        .postImage {
+            padding: 0 11% 2rem;
+        }
+        .postImage span:nth-child(1) {
+            left: 5%;
+        }
+        .postImage span:nth-child(2) {
+            left: 95%;
+        }
+        .postImage span {
+            top: calc(50% - 1.5rem);
+        }
+    }
+    .postImage {
+        span {
+            padding: 0.5rem;
+            font-size: 1.35rem;
+        }
+        span:hover {
+            transform: scale(1) translateX(-50%) translateY(calc(-50% + .5rem)) !important;
+            transition: .1s ease;
+            top: calc(50% - 1rem);
+            color: #222222
+        }
+        span:nth-child(1):hover {
+            left: 5% !important;
+        }
+        span:nth-child(2):hover {
+            left: 95% !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 360px) {
+
+    .postImage {
+        span:nth-child(1):hover {
+            left: 6% !important;
+        }
+        span:nth-child(2):hover {
+            left: 93% !important;
+        }
+    }    
+}
+

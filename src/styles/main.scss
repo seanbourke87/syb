@@ -23,3 +23,10 @@ body {
         color: #cbcbcb;
     }
 }
+
+@media only screen and (max-width: 800px) {
+    .footer {
+        font-size: 0.9rem;
+        padding: 0 0 1.5rem;
+    }
+}

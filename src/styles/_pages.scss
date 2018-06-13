@@ -161,3 +161,66 @@
     } 
 
 }
+
+
+@media only screen and (max-width: 1025px) {
+    .pageContainer {
+        main {
+            display: block;
+            margin: 1.5rem auto;
+        }
+        .pageContent {
+            width: auto;
+            padding: 1.5rem 1.5rem;
+            word-wrap: break-word;
+            text-align: center;
+        }
+        .pageContent  {
+            h1 {
+                font-size: 1.5rem;
+            }
+            p {
+                margin-bottom: 2rem;
+            }
+        }
+        .profilePic {
+            padding: 3rem 30%;
+            border-top: 1px solid #bfbfbf;
+            border-left: 0px none;
+            width: auto;
+        }
+        .profilePic p {
+            font-size: 1.25rem;
+        }
+        .boxContent {
+           width: auto !important;
+           margin-bottom: 1.5rem;
+        }
+        .flipBox {
+            display: block;
+        }
+        .flipBox {
+            a {
+                font-size: 1rem;
+            }
+            .front {
+                p {
+                  font-size: 1.5rem;  
+                  margin-bottom: 0;
+                }
+            }
+            .back {
+                .innerContent {
+                    max-width: 80%;
+                    min-width: 50%;
+                }
+                .innerContent {
+                    p {
+                        font-size: 1rem;  
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+}
