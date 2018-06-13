@@ -1,0 +1,55 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  border-bottom: 1px solid #5693b3;
+}
+
+.Logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 15px 0 15px 20px;
+}
+  
+.Logo {
+  a {
+      color: #222;
+      text-decoration: none;
+  }
+  h1 {
+    font-size: $font-size-logo;
+    font-weight: 800;
+  }
+
+  h1 span {
+    margin-left: 5px;
+    color: #cbcbcb;
+    font-size: $font-size-logo-sub;
+  }
+
+  div {
+    margin-right: 10px;
+  }
+}
+  
+
+.mainNav {
+    display: flex;
+    margin-right: 40px;
+}
+
+.mainNav {
+    li {
+      margin-left: 50px;
+      list-style: none;
+    }
+  
+    li a {
+      font-size: $font-size-nav;
+      text-decoration: none;
+      color: #222;
+    }
+}

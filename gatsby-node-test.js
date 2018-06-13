@@ -52,12 +52,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   status
                   template
                   format
-                  tags {
-                    name
-                   }
-                  categories {
-                    name
-                   }
                 }
               }
             }
@@ -76,50 +70,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         // Build the nodes from the GraphQL queries
         result.data.allWordpressPost.edges.forEach(edge => {
 
-          // Add the tags to the Tag Set
-          if (edge.node.tags) {
-            edge.node.tags.forEach(tag => {
-              tagSet.add(tag.name)
-            });
-          }
-
-          // Add the categories to the categories tag
-          if (edge.node.categories) {
-            edge.node.categories.forEach(category =>
-              categorySet.add(category.name)
-            )
-          }
-
           // Create Page is part of the Gatsby API
           createPage({
             path: edge.node.slug,
             component: postPage, // Which page should it create?
             context: {
               slug: edge.node.fields.slug
-            }
-          });
-        });
-
-        // Create Pages for tags
-        const tagList = Array.from(tagSet);
-        tagList.forEach(tag => {
-          createPage({
-            path: `/tags/${_.kebabCase(tag)}/`,
-            component: tagPage,
-            context: {
-              tag
-            }
-          });
-        });
-
-        // Create Pages for categories
-        const categoryList = Array.from(categorySet);
-        categoryList.forEach(category => {
-          createPage({
-            path: `/categories/${_.kebabCase(category)}/`,
-            component: categoryPage,
-            context: {
-              category
             }
           });
         });

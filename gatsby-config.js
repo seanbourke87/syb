@@ -41,9 +41,9 @@ module.exports = {
         color: config.themeColor
       }
     },
+    `gatsby-transformer-sharp`,
     'gatsby-plugin-sharp',
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-twitter',
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
@@ -69,6 +69,16 @@ module.exports = {
         ]
       }
     },
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Open Sans`,
+          `open sans\:300,400,400i,700, 800` // you can also specify font weights and styles
+        ]
+      }
+    }
   ]
 }
