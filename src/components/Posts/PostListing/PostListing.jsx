@@ -116,16 +116,7 @@ class PostListing extends React.Component {
       }, () => this.setState({currentIndex: this.state.personalIndex}));   
     }
   }
-
-
   
-
-  // <div className={`other dodec ${this.state.dodec.slide == 'active' ? 'slide' : 'list'}`}>
-  // <div className="slidesTitle">
-  //   <h4>Dodec Web Design Agency</h4>
-  //   <div className={`showSlide ${this.state.dodec.slide}`} onClick={(e) => this.toggleSlideStatus('dodec', e)}><span></span></div>
-  //   <div className={`showList ${this.state.dodec.list}`} onClick={(e) => this.toggleSlideStatus('dodec', e)}><span></span><span></span><span></span></div>
-  // </div>
 
   render() {    
     const postList = this.getPostList()
