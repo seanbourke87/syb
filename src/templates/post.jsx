@@ -4,6 +4,7 @@ import Link from 'gatsby-link'
 import config from '../../data/SiteConfig'
 import TopNavigation from '../components/Layout/Navigation/Navigation'
 import PostListing from '../components/Posts/PostListing/PostListing'
+import Img from 'gatsby-image'
 
 
 export default class PostTemplate extends React.Component {
@@ -26,9 +27,9 @@ export default class PostTemplate extends React.Component {
         <div className="postContainer">
           <div className="postContent">
             <div className="featuredImage">
-               <img
+               <Img
                     className="featured-image"
-                    src={postNode.featured_media.source_url}
+                    sizes={postNode.featured_media.localFile.childImageSharp.sizes}
                     alt=""
                   />
             </div>
@@ -61,6 +62,13 @@ export const pageQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       featured_media {
         source_url
+        localFile {
+          childImageSharp {
+            sizes(maxWidth: 1050, quality: 100) {
+              ...GatsbyImageSharpSizes_withWebp_noBase64
+            }
+          }
+        }
       }
       date
       slug
@@ -77,7 +85,7 @@ export const pageQuery = graphql`
       edges {
         node {
           featured_media {
-            source_url
+            source_url            
           }
           date
           slug
@@ -86,12 +94,22 @@ export const pageQuery = graphql`
           excerpt
           id
           acf {
-            extrathumb {
+            regularthumb {
               source_url
               localFile {
                 childImageSharp {
                   sizes(maxWidth: 1050, quality: 100) {
-                    ...GatsbyImageSharpSizes_noBase64                 
+                    ...GatsbyImageSharpSizes_withWebp_noBase64              
+                  }
+                }
+              }
+            }
+            featuredthumb {
+              source_url
+              localFile {
+                childImageSharp {
+                  sizes(maxWidth: 1050, quality: 100) {
+                    ...GatsbyImageSharpSizes_withWebp_noBase64
                   }
                 }
               }

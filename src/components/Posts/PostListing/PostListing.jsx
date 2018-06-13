@@ -55,11 +55,8 @@ class PostListing extends React.Component {
           excerpt: postEdge.node.excerpt,
           mainCategory: postEdge.node.categories[0].name,
           project: postEdge.node.project,
-          featuredImageUrl:
-            postEdge.node.acf.extrathumb !== null
-              ? postEdge.node.acf.extrathumb.source_url
-              : '',
-          lazyImageUrl: postEdge.node.acf.extrathumb.localFile.childImageSharp.sizes,
+          lazyImageUrl: postEdge.node.acf.regularthumb != null ? postEdge.node.acf.regularthumb.localFile.childImageSharp.sizes : '',
+          lazyImageUrlFeatured: postEdge.node.acf.featuredthumb != null ? postEdge.node.acf.featuredthumb.localFile.childImageSharp.sizes : '',
         })
       }
         
@@ -160,14 +157,14 @@ class PostListing extends React.Component {
                 {arrows ? (<span onClick={(e) => this.nextButton(cat, e)}>&#8594;</span>) : ''}
                 {console.log(window.location.pathname)}
                 <Link className="post-link" to={post.path} key={post.title}>
-                  {post.featuredImageUrl !== '' && !isHome ? (
+                  {post.lazyImageUrl !== '' && !isHome ? (
                     <Img 
                     sizes={post.lazyImageUrl} 
                     alt=""
                   />
                   ) : (
-                    <img                       
-                      src={post.featuredImageUrl} 
+                    <Img                       
+                      sizes={post.lazyImageUrlFeatured} 
                       alt=""
                     />
                   )}

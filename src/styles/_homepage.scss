@@ -276,6 +276,8 @@ $circle-ratio: .6;
         }
       }
 
+    $portfolioTransitions: opacity 1s ease, transform 1s ease;
+
     .postListing {
         background: #f6f6f6;
         margin-bottom: 1.5rem;
@@ -285,40 +287,31 @@ $circle-ratio: .6;
     .slide-1 {
         .postListing {
             opacity: 0;
-            transition: all 1s ease;
             display: none;
-            animation: postFadeOut .2s;
         }
         .postListing:nth-child(1) {
             display: block;
             opacity: 1;
-            transition: all 1s ease;
         }
     }
     .slide-2 {
         .postListing {
             opacity: 0;
-            transition: all 1s ease;
             display: none;
-            animation: postFadeOut .2s;
         }
         .postListing:nth-child(2) {
             display: block;
             opacity: 1;
-            transition: all 1s ease;
         }
     }
     .slide-3 {
         .postListing {
             opacity: 0;
-            transition: all  1s ease;
             display: none;
-            animation: postFadeOut .2s;
         }
         .postListing:nth-child(3) {
             display: block;
             opacity: 1;
-            transition: all 1s ease;
         }
     }
 

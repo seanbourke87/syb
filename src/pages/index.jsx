@@ -60,16 +60,26 @@ export const pageQuery = graphql`
           excerpt
           id
           acf {
-            extrathumb {
+            regularthumb {
               source_url
               localFile {
                 childImageSharp {
                   sizes(maxWidth: 1050, quality: 100) {
-                    ...GatsbyImageSharpSizes_noBase64             
+                    ...GatsbyImageSharpSizes_withWebp_noBase64
                   }
                 }
               }
-            }
+            }    
+            featuredthumb {
+              source_url
+              localFile {
+                childImageSharp {
+                  sizes(maxWidth: 1050, quality: 100) {
+                    ...GatsbyImageSharpSizes_withWebp_noBase64
+                  }
+                }
+              }
+            }        
           }
           categories {
             name
