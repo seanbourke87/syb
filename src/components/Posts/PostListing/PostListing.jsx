@@ -146,7 +146,6 @@ class PostListing extends React.Component {
               <div className="postImage">
                 {arrows ? (<span onClick={(e) => this.prevButton(cat, e)}>&#8592;</span>) : ''}
                 {arrows ? (<span onClick={(e) => this.nextButton(cat, e)}>&#8594;</span>) : ''}
-                {console.log(window.location.pathname)}
                 <Link className="post-link" to={post.path} key={post.title}>
                   {post.lazyImageUrl !== '' && !isHome ? (
                     <Img 
