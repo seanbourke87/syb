@@ -45,13 +45,27 @@
         color: #5693b3;
         font-weight: 800;
         border: 2px solid #5693b3;
-        padding: 0.15rem 0.65rem;
+        padding: 0.2rem 0.8rem;
         text-transform: uppercase;
         text-decoration: none;
     }
     a.siteLink.active:hover {
         background: #5693b3;
         color: #fff;
+    }
+    div.siteLink.inactive {
+        color: #cbcbcb;
+        font-weight: 800;
+        border: 2px solid #cbcbcb;
+        padding: 0.2rem 0.8rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 2.45rem;
+        font-size: 1.1rem;
+        font-style: normal;
+        line-height: 1.5rem;
+        cursor: default;
     }
     p {
         font-size: 1.1rem;
