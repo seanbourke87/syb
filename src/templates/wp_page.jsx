@@ -46,6 +46,9 @@ class wpPage extends Component {
             </div>
           ) : ''}
         </main>
+        <div className="footer">
+          <p>sybfrontend.com - a portfolio site made with React / Gatsby </p>
+        </div> 
       </div>
     )
   }
