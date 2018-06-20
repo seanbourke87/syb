@@ -126,7 +126,7 @@ class PostListing extends React.Component {
     const catTitle = (function () {
       if (cat == 'featured' && isHome == true) return '';
       else if (cat == 'featured' && isHome == false) return 'FRW.CO.UK';
-      else if (cat == 'dodec') return 'Dodec Web Design Agency';
+      else if (cat == 'dodec') return 'Dodec Digital Agency';
       else if (cat == 'personal') return 'Personal Websites';      
     });
     return (     
