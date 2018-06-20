@@ -73,14 +73,17 @@ class PostListing extends React.Component {
       slide: this.state[cat].slide == 'active' ? '' : 'active',
       list: this.state[cat].list == 'active' ? '' : 'active',
     }
-    this.setState(newStatus);
-
-    //scroll portfolio item list into view
-    document.querySelector('.portfolio-container').scrollIntoView({ 
-      behavior: 'smooth'
+    this.setState(newStatus, () => {
+      if (window.innerWidth > 1025) {
+        document.querySelector('.additional').scrollIntoView({ 
+          behavior: 'smooth',
+          block: "start",
+          inline: "start"
+        });
+      }      
     });
   }
-
+  
   //onclick handlers for next slider arrows
   nextButton(cat) {
     if (this.props.cat == 'dodec') {
