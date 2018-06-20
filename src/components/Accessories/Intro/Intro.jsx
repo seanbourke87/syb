@@ -22,7 +22,7 @@ class Bubbles extends React.Component {
 
 const Intro = () =>
  <div className="intro">
-    <p>Having worked within an agency for several years as well as inhouse for a growing company, <br />I consider myself an experienced team player.</p>
+    <p>Having worked within a digital agency for several years as well as inhouse for a growing company, <br />I consider myself an experienced team player.</p>
     <ul>
         <li>JS</li>
         <li>React</li>
