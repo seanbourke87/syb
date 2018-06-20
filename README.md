@@ -1,1 +1,1 @@
-A personal portfolio
+A portfolio site made with React / Gatsby
