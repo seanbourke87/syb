@@ -116,6 +116,17 @@ class PostListing extends React.Component {
       }, () => this.setState({currentIndex: this.state.personalIndex}));   
     }
   }
+
+  //Scroll top for same url
+  scrollToTop(path) {
+    if (('/' + path) == window.location.pathname) {
+      window.scroll({
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+      });
+    }
+  }
   
 
   render() {    
@@ -146,7 +157,7 @@ class PostListing extends React.Component {
               <div className="postImage">
                 {arrows ? (<span onClick={(e) => this.prevButton(cat, e)}>&#8592;</span>) : ''}
                 {arrows ? (<span onClick={(e) => this.nextButton(cat, e)}>&#8594;</span>) : ''}
-                <Link className="post-link" to={post.path} key={post.title}>
+                <Link className="post-link" to={post.path} key={post.title} onClick={(e) => this.scrollToTop(post.path, e)}>
                   {post.lazyImageUrl !== '' && !isHome ? (
                     <Img 
                     sizes={post.lazyImageUrl} 
