@@ -17,7 +17,6 @@ module.exports = {
     }
   },
   plugins: [
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-wordpress',
@@ -70,7 +69,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-sass',
+    `gatsby-plugin-postcss-sass`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
