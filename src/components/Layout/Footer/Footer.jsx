@@ -1,23 +1,31 @@
 import React, { Component } from "react";
 import Link from "gatsby-link";
-import UserLinks from "../../Accessories/UserLinks/UserLinks";
-import "./Footer.css";
 
 class Footer extends Component {
-  render() {
-    const { config } = this.props;
-    const url = config.siteRss;
-    const copyright = config.copyright;
-    if (!copyright) {
-      return null;
-    }
+
+  componentDidMount() {
+    var footerLink = document.querySelector('.footerLink');
+    footerLink.addEventListener( 'click', function(e) {
+      if ('/' == window.location.pathname) {
+        e.preventDefault();
+        window.scroll({
+          top: 0, 
+          left: 0,
+        });
+      }
+    });
+  }
+
+  render() {   
     return (
-      <footer className="footer">
-        <UserLinks config={config} labeled />
-        <div className="notice-container">
-          <h4>{copyright}</h4>
+      <div className="footer">
+          <p>
+            <Link className="footerLink" to="/">
+              sybfrontend.com
+            </Link>      
+             - a portfolio site made with React / Gatsby
+          </p>
         </div>
-      </footer>
     );
   }
 }

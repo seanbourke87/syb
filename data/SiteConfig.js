@@ -1,9 +1,9 @@
 module.exports = {
-  siteTitle: "SYB Front End Developer", // Site title.
+  siteTitle: 'SYB Front End Developer', // Site title.
   siteTitleAlt: "SYB Front End Developer", // Alternative site title for SEO.
   siteLogo: "", // Logo used for SEO and manifest.
-  siteUrl: "http://localhost:8000/", // Domain of your website without pathPrefix.
-  pathPrefix: "/gatsby-wordpress-starter", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  siteUrl: "http://sybfrontend.com", // Domain of your website without pathPrefix.
+  pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
   siteDescription: "Front end developer portfolio.", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteFBAppID: "", // FB Application ID for using app insights

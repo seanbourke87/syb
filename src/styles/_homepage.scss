@@ -175,7 +175,7 @@ $circle-ratio: .6;
 
 .featured {
     background: #f6f6f6;
-    margin: $new-area-margin 0;
+    margin: $new-area-margin 0 1.425rem 0;
 }
 
 .featured {
@@ -195,6 +195,7 @@ $circle-ratio: .6;
     flex-wrap: wrap;
     justify-content: space-between;
     text-align: center;
+    padding-top: 1.7rem;
 }
 
 .additional {
@@ -466,7 +467,10 @@ $circle-ratio: .6;
     }
     .featured .postImage {
         padding: 0 1.5rem 2rem;
-    }    
+    }
+    .additional {
+        padding-top: 0;
+    }
     .additional {
         .postListing {
             margin-top: 1.5em;

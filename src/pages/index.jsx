@@ -6,8 +6,18 @@ import SEO from '../components/Accessories/SEO/SEO'
 import config from '../../data/SiteConfig'
 import TopNavigation from '../components/Layout/Navigation/Navigation'
 import Intro from '../components/Accessories/Intro/Intro'
+import Link from 'gatsby-link'
+import Footer from '../components/Layout/Footer/Footer'
 
 class Index extends React.Component {
+
+  //Scroll top for same url
+  scrollToTop() {
+    if (('/' + path) == window.location.pathname) {
+      window.scroll({top: 0, left: 0, behavior: 'smooth' });
+    }
+  }
+
   render() {
     const postEdges = this.props.data.allWordpressPost.edges
     return (
@@ -30,9 +40,7 @@ class Index extends React.Component {
           
         </MainContentContainer>
 
-        <div className="footer">
-          <p>sybfrontend.com - a portfolio site made with React / Gatsby </p>
-        </div>
+        <Footer />
 
       </HomeContainer>
     )

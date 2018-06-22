@@ -5,6 +5,7 @@ import config from '../../data/SiteConfig'
 import TopNavigation from '../components/Layout/Navigation/Navigation'
 import PostListing from '../components/Posts/PostListing/PostListing'
 import Img from 'gatsby-image'
+import Footer from '../components/Layout/Footer/Footer'
 
 
 export default class PostTemplate extends React.Component {
@@ -48,9 +49,7 @@ export default class PostTemplate extends React.Component {
 
           </div>
         </div>  
-        <div className="footer">
-          <p>sybfrontend.com - a portfolio site made with React / Gatsby </p>
-        </div>      
+        <Footer />    
       </div>
     )
   }
