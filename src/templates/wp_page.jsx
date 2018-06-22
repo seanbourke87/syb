@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TopNavigation from '../components/Layout/Navigation/Navigation'
 import Img from 'gatsby-image'
+import Footer from '../components/Layout/Footer/Footer'
 
 class wpPage extends Component {
 
@@ -46,9 +47,7 @@ class wpPage extends Component {
             </div>
           ) : ''}
         </main>
-        <div className="footer">
-          <p>sybfrontend.com - a portfolio site made with React / Gatsby </p>
-        </div> 
+        <Footer />  
       </div>
     )
   }

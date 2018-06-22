@@ -1,9 +1,9 @@
-@import '_variables';
-@import '_reset';
-@import '_navigation';
-@import '_homepage';
-@import '_posts';
-@import '_pages';
+@import 'variables';
+@import 'reset';
+@import 'navigation';
+@import 'homepage';
+@import 'posts';
+@import 'pages';
 
 //General
 
@@ -21,6 +21,13 @@ body {
 .footer {
     p {
         color: #cbcbcb;
+    }
+    a {
+        color: #cbcbcb;
+        text-decoration: none;
+    }
+    a:hover {
+        color: $blue;
     }
 }
 
