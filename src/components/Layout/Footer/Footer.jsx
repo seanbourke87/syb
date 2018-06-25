@@ -23,7 +23,7 @@ class Footer extends Component {
             <Link className="footerLink" to="/">
               sybfrontend.com
             </Link>      
-             - a portfolio site made with React / Gatsby
+             &nbsp;- a portfolio site made with React / Gatsby
           </p>
         </div>
     );
