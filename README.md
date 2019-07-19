@@ -1,3 +1,3 @@
 A portfolio site made with React / Gatsby
 
-sb-frontend.com
+<a href="sb-frontend.com">sb-frontend.com</a>
